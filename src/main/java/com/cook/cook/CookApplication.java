@@ -8,7 +8,7 @@ public class CookApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CookApplication.class, args);
-		System.out.println("RUN");
+		System.out.println("In cooking ...");
 	}
 
 }
