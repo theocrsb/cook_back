@@ -4,6 +4,7 @@ CREATE TABLE member (
     password VARCHAR(255) NOT NULL,
     pseudo VARCHAR(255) NOT NULL
 );
+
 CREATE TABLE Category (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL
@@ -44,9 +45,9 @@ CREATE TABLE Comment (
 );
 
 CREATE TABLE FavoriteRecipe (
+  id SERIAL PRIMARY KEY,
   member_id INTEGER,
   recipe_id INTEGER,
-  PRIMARY KEY (member_id, recipe_id),
   FOREIGN KEY (member_id) REFERENCES Member (id),
   FOREIGN KEY (recipe_id) REFERENCES Recipe (id)
 );
@@ -63,7 +64,7 @@ CREATE TABLE Rating (
 CREATE TABLE RecipeStep (
   id SERIAL PRIMARY KEY,
   recipe_id INTEGER,
-  step_number INTEGER,
+  step_order INTEGER,
   description TEXT,
   duration INTEGER,
   FOREIGN KEY (recipe_id) REFERENCES Recipe (id)
